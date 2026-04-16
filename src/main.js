@@ -1,5 +1,6 @@
-import './style.css';
 import { renderRoadmap } from './roadmap.js';
+import { createStealthOverlay } from './components/StealthOverlay.js';
+import { SessionTracker } from './logic/SessionTracker.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   if ('serviceWorker' in navigator) {
@@ -125,4 +126,68 @@ document.addEventListener('DOMContentLoaded', () => {
   dialHitArea.addEventListener('pointercancel', (e) => {
     isDragging = false;
   });
+
+  // --- Mission 7.0: Lumina Stealth & Wake Detection ---
+  
+  const stealthMount = document.getElementById('stealth-mount');
+  const summaryEssenceDisplay = document.getElementById('summary-essence');
+  let activeTracker = null;
+
+  // Initialize Essence display from localStorage
+  function refreshEssenceDisplay() {
+    const tempTracker = new SessionTracker(0);
+    if (summaryEssenceDisplay) summaryEssenceDisplay.textContent = tempTracker.getEssence();
+  }
+  refreshEssenceDisplay();
+
+  // Hook "Begin" button (already has data-goto="active", but we intercepted its behavior)
+  const beginBtn = document.querySelector('[data-goto="active"]');
+  if (beginBtn) {
+    beginBtn.addEventListener('click', (e) => {
+      // Don't navigate to "active" immediately. Start Stealth first.
+      e.stopImmediatePropagation(); // Prevent default navigation
+      
+      activeTracker = new SessionTracker(currentMinutes);
+      
+      const overlay = createStealthOverlay(stealthMount, () => {
+        // Callback: When blackout starts
+        activeTracker.start();
+        navigateTo('active'); // Switch screen to "Active" (which is behind the blackout)
+      });
+
+      activeTracker.onComplete = (success, durationMs) => {
+        overlay.destroy();
+        refreshEssenceDisplay();
+        navigateTo('summary');
+        
+        if (success) {
+          console.log("FOCUS MISSION SUCCESSFUL");
+        } else {
+          console.log("FOCUS MISSION FAILED - Woke up too early");
+        }
+      };
+    });
+  }
+
+  // Developer Trigger (5 taps on title to see Roadmap)
+  const devTrigger = document.getElementById('dev-trigger');
+  let tapCount = 0;
+  let lastTap = 0;
+
+  if (devTrigger) {
+    devTrigger.addEventListener('click', () => {
+      const now = Date.now();
+      if (now - lastTap < 500) {
+        tapCount++;
+      } else {
+        tapCount = 1;
+      }
+      lastTap = now;
+
+      if (tapCount >= 5) {
+        tapCount = 0;
+        navigateTo('roadmap');
+      }
+    });
+  }
 });

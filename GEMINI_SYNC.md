@@ -23,9 +23,9 @@
 
 ## 1. Current Technical Status
 - **Sync Date**: 2026-04-16
-- **Summary**: Mission 7.1 (Resolve 404 and Case Sensitivity) is complete. Normalised all internal URLs to case-sensitive `/Unplug/`, updated Service Worker caching, and implemented `404.html` fallback for GitHub Pages client-side routing.
-- **Deployment Strategy**: "Root Alignment" maintained. Production build synced to project root.
-- **Latest Commit**: `7f7b6cb` (Mission 7.1: Resolve 404 and Case Sensitivity - Normalised URLs and added 404.html fallback).
+- **Summary**: Mission 7.0 (Lumina Stealth & Wake Detection) is **IN PROGRESS**. Mission 7.1 (404/Case Sensitivity) is **DONE**. Implementing stealth blackout countdown and visibility-based session tracking with essence rewards.
+- **Deployment Strategy**: "Root Alignment" maintained.
+- **Latest Commit**: `a277cfe` (Protocol: Update GEMINI_SYNC.md - Mission 7.1 complete).
 
 ## 2. SHA-256 Fingerprint
 - **Fingerprint**: `30:78:A3:7E:07:B9:6B:FC:93:9D:79:B4:8C:41:FC:86:FA:09:51:36:20:D1:94:92:65:87:33:37:5B:7B:D0:D1`
@@ -50,9 +50,8 @@
 - [x] **Mission 5.0**: Final Handshake Deployment - **DONE**
 - [x] **Mission 6.0 (Part 1)**: Privacy Policy creation - **DONE**
 - [x] **Mission 6.2**: Branding icons generated, build completed & pushed - **DONE**
-- [x] **Mission 7.0**: The Lumina Guardian (Content & State Logic) - **PARTIALLY DONE via 7.1**
 - [x] **Mission 7.1**: Resolve 404 and Case Sensitivity - **DONE**
-- [ ] **🔴 NEXT TASK — Mission 7.2**: Standing by for implementation instructions from CEO/Lead AI.
+- [ ] **🔴 NEXT TASK — Mission 7.0**: Lumina Stealth & Wake Detection - **IN PROGRESS**
 
 ## 6. Key Technical Facts
 - **Package ID**: `io.github.appsmash89.unplug`
