@@ -4,6 +4,10 @@ We will build the 4-screen SPA using Vite, Vanilla JavaScript, and Tailwind CSS.
 
 ## Proposed Changes
 
+### [Preparation]
+
+- [x] **Filename Normalization**: User has manually renamed `app-icon.png.png` to `app-icon.png` and `feature-graphic.png.png` to `feature-graphic.png`. No further action required for normalization.
+
 ### 1. Tailwind Configuration
 #### [MODIFY] tailwind.config.js
 - Set the exact colors as design tokens: Primary (#4C6545), Surface (#FAF9F5), and Surface-Container (#F3F4EE).
