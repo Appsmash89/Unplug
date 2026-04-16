@@ -7,10 +7,10 @@
 # ════════════════════════════════════════════════════════════
 
 ## SESSION START CHECKLIST (AI must confirm before proceeding)
-- [ ] Read GEMINI_SYNC.md in full
-- [ ] Read the latest commit message: `git log --oneline -3`
-- [ ] Check `git status` for anything untracked or modified
-- [ ] Confirm current task from Section 5 (Roadmap)
+- [x] Read GEMINI_SYNC.md in full
+- [x] Read the latest commit message: `git log --oneline -3`
+- [x] Check `git status` for anything untracked or modified
+- [x] Confirm current task from Section 5 (Roadmap)
 
 ## SESSION END CHECKLIST (AI must complete after EVERY mission)
 - [x] Update Section 1 (Status + Latest Commit)
@@ -23,9 +23,9 @@
 
 ## 1. Current Technical Status
 - **Sync Date**: 2026-04-16
-- **Summary**: Mission 6.2 (Asset Integration & Final Build) is complete. Branding icons (square and round) are successfully integrated into the signed Android App Bundle (.aab). The build was performed manually after resolving a file lock issue.
-- **Deployment Strategy**: "Root Alignment" maintained. `index.html` source state managed.
-- **Latest Commit**: [Update after sync]
+- **Summary**: Mission 7.1 (Resolve 404 and Case Sensitivity) is complete. Normalised all internal URLs to case-sensitive `/Unplug/`, updated Service Worker caching, and implemented `404.html` fallback for GitHub Pages client-side routing.
+- **Deployment Strategy**: "Root Alignment" maintained. Production build synced to project root.
+- **Latest Commit**: `7f7b6cb` (Mission 7.1: Resolve 404 and Case Sensitivity - Normalised URLs and added 404.html fallback).
 
 ## 2. SHA-256 Fingerprint
 - **Fingerprint**: `30:78:A3:7E:07:B9:6B:FC:93:9D:79:B4:8C:41:FC:86:FA:09:51:36:20:D1:94:92:65:87:33:37:5B:7B:D0:D1`
@@ -50,7 +50,9 @@
 - [x] **Mission 5.0**: Final Handshake Deployment - **DONE**
 - [x] **Mission 6.0 (Part 1)**: Privacy Policy creation - **DONE**
 - [x] **Mission 6.2**: Branding icons generated, build completed & pushed - **DONE**
-- [ ] **🔴 NEXT TASK — Mission 7.0**: The Lumina Guardian (Content & State Logic).
+- [x] **Mission 7.0**: The Lumina Guardian (Content & State Logic) - **PARTIALLY DONE via 7.1**
+- [x] **Mission 7.1**: Resolve 404 and Case Sensitivity - **DONE**
+- [ ] **🔴 NEXT TASK — Mission 7.2**: Standing by for implementation instructions from CEO/Lead AI.
 
 ## 6. Key Technical Facts
 - **Package ID**: `io.github.appsmash89.unplug`
