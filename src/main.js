@@ -1,10 +1,12 @@
+import './style.css';
+import './styles/theme.css';
 import { createStealthOverlay } from './components/StealthOverlay.js';
 import { SessionTracker } from './logic/SessionTracker.js';
 import { Lumina } from './components/Lumina.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/Unplug/sw.js')
+    navigator.serviceWorker.register(new URL('sw.js', import.meta.url), { scope: './' })
       .then(reg => console.log('SW registered: ', reg.scope))
       .catch(err => console.log('SW registration failed: ', err));
   }

@@ -1,10 +1,10 @@
 const CACHE_NAME = 'unplug-pwa-cache-v1';
 const urlsToCache = [
-  '/Unplug/',
-  '/Unplug/index.html',
-  '/Unplug/manifest.json',
-  '/Unplug/icon-192.svg',
-  '/Unplug/icon-512.svg'
+  './',
+  './index.html',
+  './manifest.json',
+  './icon-192.svg',
+  './icon-512.svg'
 ];
 
 self.addEventListener('install', event => {

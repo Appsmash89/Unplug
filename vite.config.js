@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+
 export default defineConfig({
-  base: '/Unplug/',
+  base: process.env.NODE_ENV === 'production' ? '/Unplug/' : '/',
 })
