@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .screen {
+    @apply absolute inset-0 opacity-0 pointer-events-none;
+    transform: translateY(15px);
+    transition: opacity 500ms ease-in-out, transform 500ms ease-in-out, filter 500ms ease-in-out, background-color 500ms ease-in-out, color 500ms ease-in-out;
+  }
+  
+  .screen.active {
+    @apply opacity-100 pointer-events-auto;
+    transform: translateY(0);
+  }
+}
+
+body {
+  @apply text-gray-900 bg-surface overflow-hidden w-screen h-screen m-0 p-0;
+}
