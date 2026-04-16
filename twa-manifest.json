@@ -13,17 +13,17 @@
   "backgroundColor": "#FAF9F5",
   "enableNotifications": true,
   "startUrl": "/Unplug/",
-  "iconUrl": "https://appsmash89.github.io/Unplug/icon-512.svg",
+  "iconUrl": "http://localhost:8080/icon-512.svg",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
     "path": "C:\\Users\\haris\\Desktop\\Unplug\\android.keystore",
     "alias": "android"
   },
-  "appVersionName": "1",
-  "appVersionCode": 1,
+  "appVersionName": "2",
+  "appVersionCode": 2,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
-  "webManifestUrl": "https://appsmash89.github.io/Unplug/manifest.json",
+  "webManifestUrl": "http://localhost:8080/manifest.json",
   "fallbackType": "customtabs",
   "features": {},
   "alphaDependencies": {
@@ -42,5 +42,5 @@
   "fileHandlers": [],
   "launchHandlerClientMode": "",
   "displayOverride": [],
-  "appVersion": "1"
+  "appVersion": "2"
 }
