@@ -28,3 +28,5 @@ stcich antigravity.txt
 
 app/build/
 build/
+
+.gradle/
