@@ -2,6 +2,12 @@ import './style.css';
 import { renderRoadmap } from './roadmap.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg => console.log('SW registered: ', reg.scope))
+      .catch(err => console.log('SW registration failed: ', err));
+  }
+
   // Screen Router Logic
   const screens = {
     onboarding: document.getElementById('screen-onboarding'),
