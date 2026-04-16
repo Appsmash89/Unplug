@@ -1,0 +1,28 @@
+# Implementation Plan - Mission 4.7: GitHub Pages Alignment
+
+This plan outlines the steps to align the repository for GitHub Pages deployment by moving the production build output to the project root.
+
+## Proposed Changes
+
+### Build Alignment
+
+The production build has already been generated via `npm run build` and is located in the `dist/` directory. For GitHub Pages to serve the site correctly from the root, we must move these files to the repository root.
+
+> [!WARNING]
+> This operation will overwrite the source code `index.html` in the project root with the minified production version. This is required for GitHub Pages integration but means the repository will now serve as a deployment branch.
+
+#### [MODIFY] Project Root
+- Move all files from `dist/` to `./`.
+- This includes `index.html`, `assets/`, and any other build artifacts.
+
+### Git Operations
+- Stage the changes.
+- Commit with: `"Deployment: Aligning build files for GitHub Pages root"`.
+- Push to the remote origin.
+
+## Verification Plan
+
+### Manual Verification
+- Verify that `index.html` in the root now contains references to the bundled assets (e.g., `/Unplug/assets/...`).
+- Verify that the `assets/` folder exists in the root and contains the JS/CSS bundles.
+- Check the git status and log to ensure the commit was successful.
