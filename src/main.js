@@ -3,7 +3,7 @@ import { renderRoadmap } from './roadmap.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
+    navigator.serviceWorker.register('/Unplug/sw.js')
       .then(reg => console.log('SW registered: ', reg.scope))
       .catch(err => console.log('SW registration failed: ', err));
   }
