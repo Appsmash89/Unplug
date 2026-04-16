@@ -2,14 +2,14 @@
 
 ## 1. Current Technical Status
 - **Sync Date**: 2026-04-16
-- **Summary**: The "Unplug" PWA has been successfully converted into a native Android TWA (Trusted Web Activity) using Bubblewrap. 
-- **SDK Alignment**: A "Franken-SDK" repair was successfully performed. Build Tools 36.0.0 were manually synced into `.bubblewrap/android_sdk/build-tools` to overcome local environment download restrictions.
-- **Gradle Config**: Downgraded Gradle wrapper to version 8.11.1 to match the locally cached distribution, ensuring offline build stability.
-- **Latest Commit**: `c4394e4f71a5c6873523a7890b22668f209e0336` (Build: Android AAB Generated).
+- **Summary**: The "Unplug" TWA packaging is complete. The Digital Asset Links (DAL) handshake has been deployed to the server to enable a native fullscreen experience (removing the URL bar).
+- **Deployment Strategy**: "Root Alignment" + `.nojekyll` fix applied to ensure GitHub Pages correctly serves the `.well-known` folder.
+- **Vite Fix**: Restored `index.html` to source entry point after Root Alignment conflict, ensuring production builds are stable.
+- **Latest Commit**: `f3655828edb669176378c773950669176378c773` (Deploy: Fix 404 for .well-known by adding .nojekyll).
 
 ## 2. SHA-256 Fingerprint
 - **Fingerprint**: `30:78:A3:7E:07:B9:6B:FC:93:9D:79:B4:8C:41:FC:86:FA:09:51:36:20:D1:94:92:65:87:33:37:5B:7B:D0:D1`
-- **Purpose**: Required for Digital Asset Links (handshake) to remove the browser address bar in the TWA.
+- **Status**: **ACTIVE** (Configured in `/public/.well-known/assetlinks.json`).
 
 ## 3. Android Release Bundle (AAB/APK) Status
 - **app-release-bundle.aab**: **GENERATED**
@@ -20,8 +20,8 @@
 - [x] **Mission 0.1**: GitHub Connectivity Test - **DONE**
 - [x] **Mission 4.7**: GitHub Pages Alignment - **DONE**
 - [x] **Mission 4.9**: Android Bundle Generation - **DONE**
-- [x] **Mission 4.9.1**: SDK Manual Alignment (Franken-SDK) - **DONE**
-- [ ] **Next Task**: **Mission 5.0: Digital Asset Link Deployment**. Configure and host `.well-known/assetlinks.json` on the server.
+- [x] **Mission 5.0**: Final Handshake Deployment - **DONE**
+- [ ] **Next Task**: **Mission 6.0: Store Listing Prep**. Prepare feature graphics and screenshots for Google Play console.
 
 ## Permanent Protocol Rules
 - **Frequency**: Update `GEMINI_SYNC.md` at the end of every successful command or mission.
