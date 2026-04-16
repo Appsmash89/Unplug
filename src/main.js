@@ -1,6 +1,6 @@
-import { renderRoadmap } from './roadmap.js';
 import { createStealthOverlay } from './components/StealthOverlay.js';
 import { SessionTracker } from './logic/SessionTracker.js';
+import { Lumina } from './components/Lumina.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   if ('serviceWorker' in navigator) {
@@ -131,7 +131,13 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const stealthMount = document.getElementById('stealth-mount');
   const summaryEssenceDisplay = document.getElementById('summary-essence');
+  const luminaMount = document.getElementById('lumina-mount');
   let activeTracker = null;
+  let guardian = new Lumina();
+
+  if (luminaMount) {
+    guardian.mount(luminaMount);
+  }
 
   // Initialize Essence display from localStorage
   function refreshEssenceDisplay() {
@@ -152,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const overlay = createStealthOverlay(stealthMount, () => {
         // Callback: When blackout starts
         activeTracker.start();
+        guardian.updateGlow(4); // Lumina becomes active when stealth starts
         navigateTo('active'); // Switch screen to "Active" (which is behind the blackout)
       });
 
@@ -162,8 +169,10 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (success) {
           console.log("FOCUS MISSION SUCCESSFUL");
+          guardian.updateGlow(4); // Keep it glowing for the summary transition
         } else {
           console.log("FOCUS MISSION FAILED - Woke up too early");
+          guardian.reset(); // Retreat to Level 0
         }
       };
     });

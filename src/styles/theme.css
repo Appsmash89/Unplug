@@ -1,0 +1,98 @@
+:root {
+  /* Sanctuary Color Tokens */
+  --color-sage-dark: #4C6545;
+  --color-sage-light: #8A9A5B;
+  --color-bone: #FAF9F5;
+  --color-charcoal: #2E342D;
+  
+  /* Motion Tokens */
+  --aether-motion: cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-drift: 500ms var(--aether-motion);
+}
+
+/* Habitat Texture Utilities */
+.moss-garden {
+  background-color: var(--color-sage-dark);
+}
+
+.stone-path {
+  background-color: var(--color-bone);
+}
+
+/* Lumina Guardian Styles */
+.lumina {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+  transition: box-shadow 1s var(--aether-motion), opacity 1s var(--aether-motion);
+  filter: blur(8px);
+  position: relative;
+  z-index: 50;
+}
+
+/* 5 Levels of Glow Intensity */
+.lumina-glow-0 {
+  opacity: 0.1;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.lumina-glow-1 {
+  opacity: 0.3;
+  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.2);
+}
+
+.lumina-glow-2 {
+  opacity: 0.5;
+  box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.3);
+}
+
+.lumina-glow-3 {
+  opacity: 0.7;
+  box-shadow: 0 0 60px 15px rgba(255, 255, 255, 0.4);
+}
+
+.lumina-glow-4 {
+  opacity: 1.0;
+  box-shadow: 0 0 80px 20px rgba(255, 255, 255, 0.5);
+  animation: lumina-pulse 4s infinite var(--aether-motion);
+}
+
+@keyframes lumina-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Sanctuary Layer Structure */
+#sanctuary-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.habitat-moss {
+  flex: 1;
+  background-color: var(--color-sage-dark);
+  transition: background-color 2s var(--aether-motion);
+}
+
+.habitat-stone {
+  height: 30%;
+  background-color: var(--color-bone);
+  transition: height 2s var(--aether-motion);
+}
+
+.habitat-waterfall {
+  position: absolute;
+  top: 0;
+  right: 10%;
+  width: 40px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.2), transparent);
+  opacity: 0.1;
+  filter: blur(4px);
+}

@@ -3,35 +3,72 @@
 ## 1. Overview & Creative North Star
 The Creative North Star for this design system is **"The Tactile Sanctuary."** 
 
-Digital wellness shouldn't feel like a digital prison; it should feel like a retreat. This system avoids the clinical "productivity" look in favor of an organic, grounded aesthetic. We use soft shadows, large touch targets, and earthen tones to make the interface feel less like a screen and more like a physical object.
+To move beyond the generic "Zen" aesthetic, we are treating the digital interface as a physical environment crafted from natural materials—sand, stone, and leaf. We reject the rigid, boxy constraints of traditional SaaS templates in favor of an **Editorial Layout philosophy**. This means using intentional asymmetry, generous oversized margins (negative space as a luxury), and a typography scale that favors dramatic contrast. The goal is not just to be "minimal," but to be "grounding." Every element should feel as though it has settled naturally onto the screen, rather than being forced into a grid.
 
-## 2. Design Tokens (Earthen Stillness)
+## 2. Colors & Tonal Texture
+Our palette is a curated selection of earth-derived tones. The color strategy focuses on low-vibration harmony to reduce cognitive load.
 
-### Colors
-- **Primary (Sage):** `#8A9A5B` — Used for primary actions and active states. Evokes nature and tranquility.
-- **Surface (Bone):** `#FAF9F6` — The primary background. Soft on the eyes, reducing glare.
-- **On-Surface (Charcoal):** `#2E342D` — High contrast for legibility but slightly desaturated to avoid the harshness of pure black.
-- **Accent (Sand):** `#DEE4DA` — Used for secondary containers and subtle highlights.
+### The "No-Line" Rule
+**Explicit Instruction:** Designers are prohibited from using 1px solid borders to define sections or containers. Structural integrity must be achieved through:
+*   **Background Shifts:** Using `surface-container-low` (#f3f4ee) for secondary information sitting on a `surface` (#fafaf5) base.
+*   **Tonal Transitions:** Defining the edge of a section through the soft transition between `surface-container` and `surface-container-high`.
 
-### Typography
-- **Primary Font:** `Manrope`
-- **Headlines:** Semi-bold, tight tracking (`-0.02em`), designed to feel sturdy and intentional.
-- **Body:** Regular weight, increased line-height (`1.6`) to promote a relaxed reading pace.
+### Surface Hierarchy & Nesting
+Treat the UI as a series of stacked, organic layers. Use the `surface-container` tiers (Lowest to Highest) to create "nested" importance:
+*   **Base:** `surface` (#fafaf5) for the main viewport.
+*   **Level 1 (Nesting):** `surface-container-low` (#f3f4ee) for subtle content grouping.
+*   **Level 2 (Interaction):** `surface-container-highest` (#dee4da) for elevated interactive cards.
 
-### Shape & Geometry
-- **Corner Radius:** `9999px` (Full Roundness). Everything follows a pill or circular logic to eliminate "sharp" digital edges.
-- **Spacing Scale:** Based on an `8px` grid, but with generous padding to ensure elements never feel crowded.
+### The "Glass & Gradient" Rule
+To add soul to the interface, avoid flat-only color applications:
+*   **Glassmorphism:** For floating navigation or modal overlays, use `surface` (#fafaf5) at 70% opacity with a 20px-40px backdrop-blur. This allows the grounding earth tones to bleed through.
+*   **Signature Textures:** For high-impact CTAs or Hero sections, apply a subtle linear gradient from `primary` (#4c6545) to `primary-container` (#ceebc2). This mimics the natural variegation of a leaf.
 
-## 3. System Rules & Principles
+## 3. Typography
+We utilize a dual-typeface system to bridge the gap between human warmth and digital precision.
 
-### Motion & Interaction
-- **Deliberate Pacing:** Transitions should use `cubic-bezier(0.4, 0, 0.2, 1)` with a duration of `500ms`. Movement should feel "weighted," like moving through water, not "snappy" like a computer.
-- **Haptic Logic:** Buttons should visually depress slightly (`scale(0.98)`) to mimic physical tactility.
+*   **Display & Headline (Manrope):** Chosen for its geometric yet approachable skeleton. Use `display-lg` (3.5rem) with tightened letter-spacing to create an authoritative, editorial "cover-page" feel.
+*   **Body & Labels (Inter):** Chosen for its exceptional legibility. `body-lg` (1rem) should be used for all long-form reflection text, ensuring a comfortable reading rhythm.
 
-### Layout Philosophy
-- **Negative Space as a Feature:** Whitespace is not empty; it is "breathing room." Use it aggressively to separate concepts and reduce cognitive load.
-- **Center-Focused:** Primary interactions (like the timer dial) should be centered to ground the user's attention.
+**Hierarchy Strategy:** Create high-contrast pairings. A `label-sm` (0.6875rem) uppercase tag in `on-surface-variant` (#5b6159) paired with a `headline-md` (1.75rem) title creates a sophisticated, premium layout that guides the eye without effort.
 
-### Accessibility
-- **Contrast:** Maintain a minimum contrast ratio of 4.5:1 for all functional text.
-- **Touch Targets:** All interactive elements must be at least `48px` in height/width to accommodate all users comfortably.
+## 4. Elevation & Depth
+In this design system, depth is a feeling, not a shadow. We abandon traditional "drop shadows" for **Tonal Layering**.
+
+*   **The Layering Principle:** Stacking layers creates natural depth. For example, a `surface-container-lowest` (#ffffff) card placed on a `surface-dim` (#d5dcd0) background provides enough contrast to imply elevation without a single shadow pixel.
+*   **Ambient Shadows:** If an element must "float" (like a primary action button), use an extra-diffused shadow. 
+    *   *Blur:* 32px | *Spread:* 0 | *Color:* `on-surface` (#2e342d) at 4% opacity. 
+    *   This mimics natural, diffused sunlight rather than a harsh artificial light source.
+*   **The Ghost Border Fallback:** Where accessibility requires a container edge (e.g., input fields), use a "Ghost Border": the `outline-variant` (#aeb4aa) token at 20% opacity. Never use 100% opaque lines.
+
+## 5. Components
+
+### Buttons
+*   **Primary:** Uses the `xl` (3rem) roundedness. Background is the `primary` to `primary-container` gradient. Text is `on-primary` (#e6ffda).
+*   **Secondary:** Uses `surface-container-high` (#e5eae0) with `on-secondary-container` (#5e4f40) text. No border.
+*   **Interaction:** On hover/tap, the color should shift slightly toward its `dim` variant (e.g., `primary` to `primary-dim`) rather than using a "glow" or "lift" effect.
+
+### Cards & Lists
+*   **Card Styling:** Forbid the use of divider lines. Instead, use the `DEFAULT` (1rem) or `lg` (2rem) roundedness scale. 
+*   **Spacing as Separation:** Use the Spacing Scale to create massive vertical gaps (e.g., 4rem between modules) to let the content breathe.
+
+### Input Fields
+*   **Form Factor:** Use `md` (1.5rem) roundedness. 
+*   **States:** The "Active" state is indicated by a background shift to `surface-container-lowest` and a subtle "Ghost Border," rather than a high-contrast color change.
+
+### Specialized Components for Well-being
+*   **The Breath Ring:** A glassmorphic circular container (`full` roundedness) using `surface-variant` with a backdrop-blur. 
+*   **Reflection Prompts:** Asymmetric layouts where the text is aligned to the right-third of the screen, leaving the left two-thirds as "meditative white space."
+
+## 6. Do’s and Don’ts
+
+### Do:
+*   **Embrace Asymmetry:** Place images or text off-center to create a sense of organic growth.
+*   **Prioritize Negative Space:** If a screen feels "busy," increase the vertical padding by 50%.
+*   **Use Tonal Shifts:** Rely on the `surface-container` tokens to organize information.
+
+### Don't:
+*   **No Hard Lines:** Never use a 100% opaque 1px border.
+*   **No High-Frequency Motion:** Avoid "snappy" or "bouncy" animations. Transitions should be slow, linear fades or gentle drifts.
+*   **No Pure Black:** Ensure all "dark" elements use `on-surface` (#2e342d) or `inverse_surface` (#0d0f0c) to maintain the soft, earthy feel.
+*   **No Centered Grids:** Avoid the "bootstrap" look where every column is perfectly equal. Use the "Editorial" lens—one wide column, one narrow.
