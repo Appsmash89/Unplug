@@ -50,7 +50,7 @@
 - [x] **Mission 5.0**: Final Handshake Deployment - **DONE**
 - [x] **Mission 6.0 (Part 1)**: Privacy Policy creation - **DONE**
 - [x] **Mission 6.2**: Branding icons generated, build completed & pushed - **DONE**
-- [ ] **🔴 NEXT TASK — Mission 7.0**: Google Play Store submission. Prepare listing details and upload the `.aab`.
+- [ ] **🔴 NEXT TASK — Mission 7.0**: The Lumina Guardian (Content & State Logic).
 
 ## 6. Key Technical Facts
 - **Package ID**: `io.github.appsmash89.unplug`
